@@ -25,13 +25,13 @@ lipo -create \
 
 lipo -create \
   ../target/aarch64-apple-ios/release/libstarknet_c_bindings.a \
-  -output libstrarknet_c_bindings_ios.a
+  -output libstarknet_c_bindings_ios.a
 
 rm -r CryptoRs.xcframework
 
 xcodebuild -create-xcframework \
   -library ./libstarknet_c_bindings_iossimulator.a \
   -headers include/ \
-  -library ./libstrarknet_c_bindings_ios.a \
+  -library ./libstarknet_c_bindings_ios.a \
   -headers include/ \
   -output CryptoRs.xcframework
