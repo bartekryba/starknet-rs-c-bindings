@@ -15,7 +15,7 @@ targets+=( "${ios_targets[@]}" "${iossimulator_targets[@]}" )
 
 for target in "${targets[@]}"; do
   rustup target add ${target}
-  cargo build --release --target ${target}
+  cargo +nightly build -Z build-std=std,panic_abort --release --target ${target}
 done
 
 lipo -create \

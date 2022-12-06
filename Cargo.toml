@@ -49,3 +49,8 @@ url = "2.2.2"
 [features]
 default = ["bigdecimal"]
 bigdecimal = ["starknet-core/bigdecimal"]
+
+[profile.release]
+lto = true
+opt-level = "z"
+strip = true
