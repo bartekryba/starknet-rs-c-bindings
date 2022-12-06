@@ -1476,6 +1476,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "starknet-c-bindings"
+version = "0.2.0"
+dependencies = [
+ "criterion",
+ "hex",
+ "hex-literal",
+ "serde",
+ "serde_json",
+ "starknet-crypto",
+ "starknet-ff",
+]
+
+[[package]]
 name = "starknet-contract"
 version = "0.1.0"
 dependencies = [

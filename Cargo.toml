@@ -26,6 +26,7 @@ members = [
     "starknet-macros",
     "starknet-curve",
     "starknet-crypto-codegen",
+    "starknet-c-bindings",
     "examples/starknet-wasm",
 ]
 
@@ -48,3 +49,8 @@ url = "2.2.2"
 [features]
 default = ["bigdecimal"]
 bigdecimal = ["starknet-core/bigdecimal"]
+
+[profile.release]
+lto = true
+opt-level = "z"
+strip = true

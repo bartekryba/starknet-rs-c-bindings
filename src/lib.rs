@@ -71,3 +71,7 @@ pub mod accounts {
 pub mod macros {
     pub use starknet_macros::*;
 }
+
+pub mod cbindings {
+    pub use starknet_c_bindings::*;
+}
