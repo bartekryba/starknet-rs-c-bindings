@@ -6,6 +6,8 @@ targets=(
   "aarch64-apple-ios"
   "aarch64-apple-ios-sim"
   "x86_64-apple-ios"
+  "aarch64-apple-darwin"
+  "x86_64-apple-darwin"
 )
 
 mkdir -p binaries
@@ -25,11 +27,18 @@ lipo -create \
   ../target/aarch64-apple-ios/release/libstarknet_c_bindings.a \
   -output binaries/libstarknet_c_bindings_ios.a
 
+lipo -create \
+  ../target/aarch64-apple-darwin/release/libstarknet_c_bindings.a \
+  ../target/x86_64-apple-darwin/release/libstarknet_c_bindings.a \
+  -output binaries/libstarknet_c_bindings_macos.a
+
 rm -r frameworks/CryptoRs.xcframework
 
 xcodebuild -create-xcframework \
   -library ./binaries/libstarknet_c_bindings_iossimulator.a \
   -headers include/ \
   -library ./binaries/libstarknet_c_bindings_ios.a \
+  -headers include/ \
+  -library ./binaries/libstarknet_c_bindings_macos.a \
   -headers include/ \
   -output frameworks/CryptoRs.xcframework
